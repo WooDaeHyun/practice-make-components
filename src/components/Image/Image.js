@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { useState, useRef, useEffect } from "react";
+import React from "react";
+const { useState, useRef, useEffect } = React;
 
 let observer = null;
 const LOAD_IMG_EVENT_TYPE = "loadImage";
