@@ -10,9 +10,9 @@ const Text = ({
   delete: del,
   mark,
   code,
-  color,
   ...props
 }) => {
+  console.log({ ...props });
   const Tag = block ? "div" : paragraph ? "p" : "span";
   //태그를 동적으로 사용하기
 
@@ -33,13 +33,15 @@ const Text = ({
   }
 
   return (
-    <Tag
-      className={typeof size === "string" ? `Text--size-${size}` : undefined}
-      style={{ ...props.style, ...fontStyle }}
-      {...props}
-    >
-      {children}
-    </Tag>
+    <>
+      <Tag
+        className={typeof size === "string" ? `Text--size-${size}` : undefined}
+        style={{ ...props.style, ...fontStyle }}
+        {...props}
+      >
+        {children}
+      </Tag>
+    </>
   );
 };
 
