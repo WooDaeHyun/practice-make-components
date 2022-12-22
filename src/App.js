@@ -1,20 +1,23 @@
-import { useState } from "react";
-import Header from "./components/SearchBoxComponent/Header/Header";
-import SearchBox from "./components/SearchBoxComponent/SearchBox/SearchBox";
-import EmojiList from "./components/SearchBoxComponent/EmojiList/EmojiList";
-import EmojiData from "./components/SearchBoxComponent/data/emogi.json";
+import NewTaskForm from "./components/ToDoList(contextAPI)/NewTaskForm";
+import TaskList from "./components/ToDoList(contextAPI)/TaskList";
+import Header from "./components/ToDoList(contextAPI)/Header";
+import styled from "@emotion/styled";
+import TaskProvider from "./components/ToDoList(contextAPI)/contexts/TaskProvider";
+
+const Container = styled.div`
+  width: 400px;
+  margin: 0 auto;
+`;
 
 function App() {
-  const [keyword, setKeyword] = useState("");
-
-  console.log("keyword", keyword);
-
   return (
-    <div>
-      <Header />
-      <SearchBox onSearch={setKeyword} />
-      <EmojiList emojis={EmojiData} keyword={keyword}></EmojiList>
-    </div>
+    <TaskProvider>
+      <Container>
+        <Header />
+        <NewTaskForm />
+        <TaskList css={{ marginTop: 16 }} />
+      </Container>
+    </TaskProvider>
   );
 }
 
